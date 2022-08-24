@@ -11,7 +11,7 @@ class ExchangeConverter:
     pass
 
     @staticmethod
-    def exchange_request(to_: str, from_: str, amount: str, amount_given):
+    def exchange_request(to_: str, from_: str, amount: str, flag: int):
         try:
             if float(amount):
                 pass
@@ -33,9 +33,9 @@ class ExchangeConverter:
         result = json.loads(response.content)
         rate = result["result"]
 
-        if amount_given:
-            answer = f"Чтобы купить {float(amount_given)} {to_value}, нужно продать \
-{round(float(amount_given) / rate, 2)} {from_value}"
+        if flag == 2:
+            answer = f"Чтобы купить {float(amount)} {to_value}, нужно продать \
+{round(float(amount)**2 / rate, 2)} {from_value}"
         else:
             answer = f"Сегодня и сейчас {amount} {from_value} - это {round(rate, 2)} {to_value}"
 

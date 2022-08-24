@@ -29,7 +29,7 @@ def available_currencies(message: telebot.types.Message):
 @bot.message_handler(content_types=["text"])
 def exchange(message: telebot.types.Message):
     try:
-        to_, from_, amount, answer, amount_given = [0]*5
+        to_, from_, amount, answer, amount_given, flag = [0]*6
         message.text = message.text.lower()
         text = message.text.split()
         if len(text) != 3:
@@ -41,11 +41,12 @@ def exchange(message: telebot.types.Message):
 
         try:
             if float(text[0]):
-                to_, from_, amount, amount_given = text[1], text[2], "1", text[0]
+                to_, from_, amount = text[1], text[2], text[0]
+                flag = 2
         except ValueError:
             to_, from_, amount = text
 
-        answer = ExchangeConverter.exchange_request(to_, from_, amount, amount_given)
+        answer = ExchangeConverter.exchange_request(to_, from_, amount, flag)
 
     except UserFaultMessage as e:
         bot.reply_to(message, f"{e}")
