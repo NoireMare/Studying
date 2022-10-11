@@ -1,0 +1,32 @@
+{% extends 'default.html' %}
+
+<!-- Название у нас будет news -->
+{% block title %}
+News
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим все товары -->
+{% load custom_filters %}
+{% block content %}
+{% if news %}
+<br>
+<h3>Всего статей ({{ news|length }})</h3>
+<br>
+    <table class="news_screen">
+           <tr>
+               <td><strong>Дата</strong></td>
+               <td><strong>Тема новости</strong></td>
+               <td><strong>Рейтинг</strong></td>
+           </tr>
+           {% for post in news %}
+           <tr>
+               <td><p>{{ post.time_add|date:'d.m.y' }}</p></td>
+               <td><h5>{{ post.title|censor }}</h5><p>{{ post.text|truncatewords:20|censor }}</p></td>
+               <td><p>{{ post.rating }}</p></td>
+           </tr>
+           {% endfor %}
+       </table>
+{% else %}
+    <h3>На сегодня у нас для вас новостей нет. Зайдите попозже.</h3>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'default.html' %}
+
+<!-- Название у нас будет news.title -->
+{% block title %}
+{{ news.title }}
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим новость -->
+{% load custom_filters %}
+{% block content %}
+{% if news %}
+<br>
+    <table class="news_screen">
+        <tr>
+            <td><strong>Дата</strong></td>
+            <td><strong>Заголовок</strong></td>
+        </tr>
+        <tr>
+            <td><p>{{ news.time_add|date:'d.m.y' }}</p></td>
+            <td><h5>{{ news.title|censor }}</h5> <br> <p>{{ news.text|censor }}</p></td>
+        </tr>
+    </table>
+{% else %}
+    <h3>Не нашли новостей для вас. Зайдите попозже, пожалуйста.</h3>
+{% endif %}
+{% endblock content %}
