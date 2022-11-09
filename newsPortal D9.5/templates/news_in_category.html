@@ -1,0 +1,55 @@
+{% extends 'default.html' %}
+
+<!-- Название у нас будет news -->
+{% block title %}
+News
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим все товары -->
+{% load custom_filters %}
+{% load custom_tags %}
+{% block content %}
+<br>
+{% if posts %}
+<h5><kbd>{{ cat.category_name|capfirst }}</kbd> | <span>Всего новостей ({{ posts|length }})</span>
+    <span><a href="/accounts/profile/sign/{{cat.id}}"><button>Подписаться</button></a></span></h5>
+<br>
+    <table class="news_screen">
+           {% for post in posts %}
+           <tr>
+               <td><p>{{ post.time_add|date:'d.m.y' }}</p></td>
+               <td><h5><a href="{% url 'post_detail' post.id %}">{{ post.title|censor }}</a></h5><p>{{ post.text|truncatewords:20|censor }}</p>
+               </td>
+               <td class="right"><p>{{ post.rating }}</p></td>
+           </tr>
+           {% endfor %}
+       </table>
+{% else %}
+    <h3>На сегодня у нас для вас новостей нет. Зайдите попозже.</h3>
+{% endif %}
+
+
+   {# Добавляем пагинацию на страницу #}
+
+   {# Информация о предыдущих страницах #}
+   {% if page_obj.has_previous %}
+       <a href="?{% url_replace page=1 %}">1</a>
+       {% if page_obj.previous_page_number != 1 %}
+           ...
+           <a href="?{% url_replace page=page_obj.previous_page_number %}">{{ page_obj.previous_page_number }}</a>
+       {% endif %}
+   {% endif %}
+
+   {# Информация о текущей странице #}
+   {{ page_obj.number }}
+
+   {# Информация о следующих страницах #}
+   {% if page_obj.has_next %}
+       <a href="?{% url_replace page=page_obj.next_page_number %}">{{ page_obj.next_page_number }}</a>
+       {% if paginator.num_pages != page_obj.next_page_number %}
+           ...
+           <a href="?{% url_replace page=page_obj.paginator.num_pages %}">{{ page_obj.paginator.num_pages }}</a>
+       {% endif %}
+   {% endif %}
+
+{% endblock content %}

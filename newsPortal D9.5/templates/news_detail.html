@@ -1,0 +1,41 @@
+{% extends 'default.html' %}
+
+<!-- Название у нас будет news.title -->
+{% block title %}
+{{ news.title }}
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим новость -->
+{% load custom_filters %}
+{% block content %}
+{% if news %}
+    <table class="news_screen">
+        <tr>
+            <td><p>{{ news.time_add|date:'d.m.y' }}</p></td>
+            <td>
+                <h5>{{ news.title|censor }}</h5>
+                <mark>Тема новости:</mark>
+                {% for cat in news.category_post.all %}
+                   <strong><a href="{% url 'posts_in_category' cat.id %}">{{ cat }}</a></strong>
+                {% endfor %}
+
+                <p><br>{{ news.text|censor }}</p>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+            </td>
+        </tr>
+        {% for cat in news.category_post.all %}
+        <tr>
+            <td></td>
+            <td><p><a href="/accounts/profile/sign/{{cat.id}}"><button>Подписаться</button></a> на новости из категории <strong>"{{ cat.category_name }}"</strong>, чтобы
+            всегда быть на волне</p></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <h3>Не нашли новостей для вас. Зайдите попозже, пожалуйста.</h3>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends "account/base.html" %}
+
+{% block content %}
+<br>
+<h2>Страница авторизованного пользователя: {{request.user.username}}</h2>
+<br>
+<div>{{ request.user.first_name }} {{ request.user.last_name }} </div>
+<div>Логин: {{ request.user.email }} </div>
+<div>Пароль:  </div>
+<div>Дата регистрации: {{ request.user.date_joined }} </div>
+{{ request.user_groups.name }}
+<br>
+<div><p>Ваши подписки:</p>
+    <ul>
+    {% for cat in request.user.category_set.all %}
+        <li>{{ cat }}</li>
+    {% endfor %}
+    </ul>
+</div>
+<br>
+{% if is_not_authors %}
+<a href="upgrade_to_authors/"><button>Хочу стать автором!</button></a>
+{% endif %}
+{% if is_authors %}
+<a href="upgrade_to_common/"><button>Хочу перестать быть автором!</button></a>
+{% endif %}
+<br><br>
+<a href="/accounts/logout/"><button>Выйти</button></a>
+{% endblock %}
