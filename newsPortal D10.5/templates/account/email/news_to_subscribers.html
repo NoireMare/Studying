@@ -1,0 +1,7 @@
+{% extends 'default.html' %}
+
+{% block content %}
+    <h2>{{ form.0 }}</h2>
+    <h3>Привет, {{ form.3 }}! Новая новость на нашем портале. Бежим читать и радоваться.</h3>
+    <p> <a href="{% url 'post_detail' form.2 %}">{{ form.1|truncatechars:150 }}</a></p>
+{% endblock content %}
