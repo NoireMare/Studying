@@ -1,0 +1,9 @@
+{% extends 'default.html' %}
+
+{% block content %}
+<h3>Привет, {{ form.1 }}! Свежая подборка новостей за последнюю неделю.</h3>
+{% for post in form.0 %}
+    <p><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></p>
+    <p>{{ post.text|truncatechars:150 }}</p>
+{% endfor %}
+{% endblock content %}

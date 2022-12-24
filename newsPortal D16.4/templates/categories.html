@@ -1,0 +1,13 @@
+{% extends 'default.html' %}
+
+{% block content %}
+    <ul>
+        <h4>Просмотр новостей по темам</h4><br>
+    {% for cat in cats %}
+        <a href="{% url 'posts_in_category' cat.id %}" style="text-decoration:none">
+            <li style="list-style-type:none; display: inline; margin-right:7px;">
+                <kbd>{{cat.category_name}}</kbd></li></a>
+    {% endfor %}
+    </ul>
+
+{% endblock content %}

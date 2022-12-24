@@ -1,0 +1,62 @@
+{% extends 'default.html' %}
+
+<!-- Название у нас будет news -->
+{% block title %}
+Articles
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим все товары -->
+{% load custom_filters %}
+{% load custom_tags %}
+{% block content %}
+<br>
+<!--<a href="search" type="submit" style="float:right">Поиск</a>-->
+
+{% if articles %}
+<h3>Всего статей ({{ articles|length }})</h3>
+<br>
+    <table class="news_screen">
+           <tr>
+               <td><strong>Дата</strong></td>
+               <td><strong>Название</strong></td>
+               <td><strong>Рейтинг</strong></td>
+           </tr>
+           {% for post in articles %}
+                {% if not post.type %}
+           <tr>
+               <td><p>{{ post.time_add|date:'d.m.y' }}</p></td>
+               <td><h5><a href="{% url 'article_detail' post.id %}">{{ post.title|censor }}</a></h5><p>{{ post.text|truncatewords:20|censor }}</p></td>
+               <td><p>{{ post.rating }}</p></td>
+           </tr>
+                {% endif %}
+           {% endfor %}
+       </table>
+{% else %}
+    <h3>На сегодня у нас для вас новостей нет. Зайдите попозже.</h3>
+{% endif %}
+
+
+   {# Добавляем пагинацию на страницу #}
+
+   {# Информация о предыдущих страницах #}
+   {% if page_obj.has_previous %}
+       <a href="?{% url_replace page=1 %}">1</a>
+       {% if page_obj.previous_page_number != 1 %}
+           ...
+           <a href="?{% url_replace page=page_obj.previous_page_number %}">{{ page_obj.previous_page_number }}</a>
+       {% endif %}
+   {% endif %}
+
+   {# Информация о текущей странице #}
+   {{ page_obj.number }}
+
+   {# Информация о следующих страницах #}
+   {% if page_obj.has_next %}
+       <a href="?{% url_replace page=page_obj.next_page_number %}">{{ page_obj.next_page_number }}</a>
+       {% if paginator.num_pages != page_obj.next_page_number %}
+           ...
+           <a href="?{% url_replace page=page_obj.paginator.num_pages %}">{{ page_obj.paginator.num_pages }}</a>
+       {% endif %}
+   {% endif %}
+
+{% endblock content %}
