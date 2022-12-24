@@ -1,0 +1,2 @@
+INFO 2022-12-24 13:51:48,215 autoreload Watching for file changes with StatReloader
+INFO 2022-12-24 13:54:55,256 autoreload /Users/Diablo/PycharmProjects/NewsPortal/NewsPortal/settings.py changed, reloading.

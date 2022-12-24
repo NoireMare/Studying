@@ -1,0 +1,248 @@
+ERROR 2022-12-24 12:16:58,006 /Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/utils/log.py Internal Server Error: /news/ (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("Invalid block tag on line 36: 'endfor', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?"), <traceback object at 0x107d6c240>)
+Traceback (most recent call last):
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'endfor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 954, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 36: 'endfor', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+ERROR 2022-12-24 12:16:58,011 /Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py "GET /news/ HTTP/1.1" 500 220024 None
+ERROR 2022-12-24 12:17:06,396 /Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/utils/log.py Internal Server Error: /news/ (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("Invalid block tag on line 36: 'endfor', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?"), <traceback object at 0x107d7b6c0>)
+Traceback (most recent call last):
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'endfor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 954, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 36: 'endfor', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+ERROR 2022-12-24 12:17:06,397 /Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py "GET /news/ HTTP/1.1" 500 220161 None
+ERROR 2022-12-24 13:42:13,407 /Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/utils/log.py Internal Server Error: /accounts/profile/ (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("Invalid block tag on line 18: 'endfor', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?"), <traceback object at 0x108a1b800>)
+Traceback (most recent call last):
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'endfor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 854, in do_for
+    nodelist_loop = parser.parse(
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 954, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 18: 'endfor', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+ERROR 2022-12-24 13:42:13,413 /Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py "GET /accounts/profile/ HTTP/1.1" 500 209773 None
+ERROR 2022-12-24 13:42:14,609 /Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/utils/log.py Internal Server Error: /accounts/profile/ (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("Invalid block tag on line 18: 'endfor', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?"), <traceback object at 0x108b3e0c0>)
+Traceback (most recent call last):
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'endfor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 854, in do_for
+    nodelist_loop = parser.parse(
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 954, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/template/base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 18: 'endfor', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+ERROR 2022-12-24 13:42:14,610 /Users/Diablo/PycharmProjects/NewsPortal/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py "GET /accounts/profile/ HTTP/1.1" 500 209773 None
