@@ -1,0 +1,58 @@
+{% extends 'default.html' %}
+
+<!-- Название у нас будет news.title -->
+{% block title %}
+{{ news.title }}
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим новость -->
+{% load custom_filters %}
+{% block content %}
+{% if news %}
+    <table class="news_screen">
+        <tr>
+            <td><p>{{ news.time_add|date:'d.m.y' }}</p></td>
+            <td>
+                <h5>{{ news.title|censor }}</h5>
+                <mark>Тема новости:</mark>
+                {% for cat in news.category_post.all %}
+                   <strong><a href="{% url 'posts_in_category' cat.id %}">{{ cat }}</a></strong>
+                {% endfor %}
+
+                <p><br>{{ news.text|censor }}</p>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+            </td>
+        </tr>
+        {% for cat in news.category_post.all %}
+        <tr>
+            <td></td>
+            <td><p><a href="/accounts/profile/sign/{{cat.id}}"><button>Подписаться</button></a> на новости из категории <strong>"{{ cat.category_name }}"</strong>, чтобы
+            всегда быть на волне</p></td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td></td>
+            <td><h6>Комментарии:</h6></td>
+        </tr>
+        {% if news.comment_set.all %}
+            {% for com in news.comment_set.all %}
+        <tr>
+            <td></td>
+            <td class="input-group-text" style="margin-bottom:5px"><strong style="margin-right:10px">{{ com.comment_who.username }}:</strong> {{ com.text }} <strong style="color:green; margin-left:5px">/{{ com.rating|floatformat }}/</strong></td>
+        </tr>
+            {% endfor %}
+        {% else %}
+        <tr>
+            <td></td>
+            <td class="input-group-text"><br><p>Комментариев нет. Давайте, будьте первыми! Сгенерите что-нибудь смачное!</p></td>
+        </tr>
+        {% endif %}
+    </table>
+{% else %}
+    <h3>Не нашли новостей для вас. Зайдите попозже, пожалуйста.</h3>
+{% endif %}
+{% endblock content %}
